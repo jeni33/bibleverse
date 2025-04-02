@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bible Verse</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #EABDE6;
+            text-align: center;
+            margin: 20px;
+        }
+        header {
+            margin-bottom: 16px;    
+            background-color: #FF4D6D;
+            padding: 16px;
+            text-align: right;
+            border-radius: 8px;
+            box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        header a {
+            color: white;
+            text-decoration: none; 
+            margin: 0 10px; 
+            font-size: 18px;
+            transition: color 0.3s ease; 
+        }
+        header a:hover {
+            color: #ffe0e6; 
+        }
+        .styled {
+            font-family: Gabriola, sans-serif;
+            font-size: 2.5em;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.7);
+            border: solid 2px #fff;
+            padding: 16px 32px;
+            margin-top: 16px;
+            border-radius: 10px;
+            background-image: url('img/design2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.15);
+        }
+        .italic-title {
+            font-style: italic;
+            font-family: serif;
+            margin-bottom: 10px;
+        }
+        .bg {
+            background-color: #ffccd5;
+            border-radius: 6px;
+        }
+        /* Button Styling */
+        button {
+            background: #ff6b81;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin: 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        button:hover {
+            background: #e0576e;
+        }
+    </style>
+</head>
+<body>
+    
+    <button id="addBtn" onclick="toggleDesign(event, true)">Add Design</button>
+    <button id="removeBtn" onclick="toggleDesign(event, false)">Remove Design</button>
+
+    <div class="container">
+        <div id="content-list">
+            <h2 id="title">Isaiah 60:22</h2>
+            <p>"When the time is right, I, the Lord, will make it happen"</p>
+        </div>
+    </div>
+
+    <!-- functions -->
+    <script>
+        function toggleDesign(event, add) {
+            const container = document.querySelector('.container');
+            const title = document.querySelector('#title');
+            const buttons = document.querySelectorAll('button');
+            const clickedButton = event.target;
+
+            buttons.forEach(btn => btn.classList.remove('bg'));
+
+            if (add) {
+                container.classList.add('styled');
+                title.classList.add('italic-title');
+            } else {
+                container.classList.remove('styled');
+                title.classList.remove('italic-title');
+            }
+
+            clickedButton.classList.add('bg');
+        }
+    </script>
+</body>
+</html>
